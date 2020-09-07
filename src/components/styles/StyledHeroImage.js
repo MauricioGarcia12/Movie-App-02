@@ -31,10 +31,10 @@ export const StyledHeroImage = styled.div`
     min-height: 100px;
     background: rgba(0, 0, 0, 0);
     color: #fff;
+    font-size:3rem;
 
     h1 {
       font-family: 'Abel', sans-serif;
-      font-size: 48px;
       color: #fff;
 
       @media screen and (max-width: 720px) {

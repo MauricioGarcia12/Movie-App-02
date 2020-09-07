@@ -1,7 +1,15 @@
 import React from 'react';
-const HeroImage = () => {
+import {StyledHeroImage, } from '../styles/StyledHeroImage'
+const HeroImage = ({image,title,text}) => {
     return ( 
-        <h2>HEROIMAGE</h2>
+        <StyledHeroImage image={image}>
+            <div className="heroimage-content">
+                <div className="heroimage-text">
+                    <h2>{title}</h2>
+                    <p>{text}</p>
+                </div>
+            </div>
+        </StyledHeroImage>
 
      );
 }
