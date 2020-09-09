@@ -1,10 +1,10 @@
 import React,{Fragment,useState} from 'react'
 import {
-    API_URL,
-    API_KEY,
     IMAGE_BASE_URL,
     BACKDROP_SIZE,
-    POSTER_SIZE
+    POSTER_SIZE,
+    POPULAR_BASE_URL,
+    SEARCH_BASE_URL
 } from '../config';
 
 //Importing Components
@@ -26,21 +26,45 @@ const HomePage = () => {
     const [{state,loading,error},fetchMovies] = useHomeFetch();
     const [searchTerm, setSearchTerm] = useState('');
 
-    const {movies,currentPage,TotalPages,heroImage}=state;
+    const {movies,currentPage,heroImage,totalPages}=state;
 
+    const searchMovies = search => {
+        const endpoint = search ? SEARCH_BASE_URL + search : POPULAR_BASE_URL;
+    
+        setSearchTerm(search);
+        fetchMovies(endpoint);
+    
+      }
+
+   const  loadMoreMovies = () => {
+        const { searchTerm, currentPage } = state;
+        //obteniendo 
+        const searchEndpoint = `${SEARCH_BASE_URL}${searchTerm}&page=${currentPage +1}`;
+        const popularEndpoint = `${POPULAR_BASE_URL}&page=${currentPage + 1}`;
+    
+        const endpoint = searchTerm ? searchEndpoint : popularEndpoint;
+    
+        fetchMovies(endpoint);
+      };
+    
 
     if(error) return <div>Something Went Wrong...</div>
     if(!movies[0]) return <Spinner/>
 
     return ( 
         <Fragment>
+            {!searchTerm &&(
+                <HeroImage
+                image={`${IMAGE_BASE_URL}${BACKDROP_SIZE}${state.heroImage.backdrop_path}`}
+                title={heroImage.original_title}
+                text={heroImage.overview}
+                />
+            )}
+            
 
-            <HeroImage
-            image={`${IMAGE_BASE_URL}${BACKDROP_SIZE}${state.heroImage.backdrop_path}`}
-            title={heroImage.original_title}
-            text={heroImage.overview}
+            <SearchBar
+                callback={searchMovies}
             />
-            <SearchBar/>
             <Grid
             header={searchTerm ? 'Search Result':'Popular Movies'}
             >
@@ -62,9 +86,18 @@ const HomePage = () => {
             }
 
             </Grid>
-            <Spinner/>
-            <LoadMoreBtn/>
+            {//si loading es true carga el spinner
+            loading && <Spinner /> 
+            }
 
+            {
+            currentPage < totalPages && !loading && (
+                <LoadMoreBtn 
+                text="Load More" 
+                callback={loadMoreMovies} 
+                />
+                )
+             }
         </Fragment>
      );
 }

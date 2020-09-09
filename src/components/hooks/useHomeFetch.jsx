@@ -1,5 +1,5 @@
 import React,{useEffect , useState} from 'react'
-import {API_URL, API_KEY} from '../../config';
+import {POPULAR_BASE_URL} from '../../config';
 
 export const useHomeFetch = () =>{
 
@@ -12,7 +12,7 @@ export const useHomeFetch = () =>{
     const fetchMovies = async endpoint =>{
         setError(false)
         setLoading(true)
-
+        const isLoadMore = endpoint.search('page');
 
         try{
             //wait for fetch and wait for json
@@ -20,7 +20,11 @@ export const useHomeFetch = () =>{
 
             setState(prev => ({
                 ...prev,
-                movies:[...result.results],
+                movies:
+                isLoadMore !==-1
+                ?[...prev.movies, ...result.results]
+                :[...result.results],
+
                 heroImage:prev.heroImage || result.results[0],
                 currentPage:result.page,
                 totalPages:result.total_pages
@@ -35,7 +39,7 @@ export const useHomeFetch = () =>{
     }
 
     useEffect(() => {
-        fetchMovies(`${API_URL}movie/popular?api_key=${API_KEY}`);
+        fetchMovies(POPULAR_BASE_URL);
     }, [])
 
     return [{state,loading,error},fetchMovies];
