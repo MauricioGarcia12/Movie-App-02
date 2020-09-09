@@ -90,8 +90,7 @@ const HomePage = () => {
             loading && <Spinner /> 
             }
 
-            {
-            currentPage < totalPages && !loading && (
+            {currentPage < totalPages && !loading && (
                 <LoadMoreBtn 
                 text="Load More" 
                 callback={loadMoreMovies} 
