@@ -12,6 +12,10 @@ export const StyledMovieInfoBar = styled.div`
   font-family: 'Abel', sans-serif;
   font-size: 20px;
 
+  span{
+    margin-left: 1rem;
+  }
+
   .movieinfobar-content {
     max-width: 1280px;
     width: 100%;
@@ -29,6 +33,7 @@ export const StyledMovieInfoBar = styled.div`
   .movieinfobar-info {
     padding: 5px 0 0 10px;
     float: left;
+    margin-left: 4rem;
   }
 
   .fa-time,
@@ -53,4 +58,5 @@ export const StyledMovieInfoBar = styled.div`
   @media screen and (max-width: 425px) {
     font-size: 14px;
   }
+  
 `;
