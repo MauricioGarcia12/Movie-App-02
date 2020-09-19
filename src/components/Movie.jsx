@@ -1,4 +1,4 @@
-import React,{Fragment} from 'react'
+import React, {Fragment} from 'react'
 import Navigation from './elements/Navigation'
 import MovieInfo from './elements/MovieInfo'
 import Actor from './elements/Actor'
@@ -10,12 +10,19 @@ import useMovieFetch from './hooks/useMovieFetch';
 
 const Movie = ({movieId}) => {
     const [movie,loading,error]= useMovieFetch(movieId)
-    console.log(movie)
+    
+    if(error) return <div>Something went wrong</div>
+    if(loading) return <Spinner/>
 
+    
     return ( 
         <Fragment>
-            <Navigation/>
-            <MovieInfo/>
+            <Navigation
+            movie={movie.original_title}
+            />
+            <MovieInfo
+            movie={movie}
+            />
             <MovieInfoBar/>
             <Grid>
                 <Actor/>
