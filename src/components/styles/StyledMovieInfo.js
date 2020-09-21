@@ -52,6 +52,10 @@ export const StyledMovieInfo = styled.div`
       line-height: 0;
       margin-top: 30px;
     }
+    .overview{
+      font-size:23px;
+      line-height:1.5;
+    }
 
     p {
       font-family: 'Abel', sans-serif;

@@ -6,6 +6,7 @@ import PropTypes from 'prop-types';
 const Actor = ({actor}) => {
     return ( 
         <StyledActor>
+            
             <img 
             src={
                 actor.profile_path

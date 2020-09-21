@@ -27,15 +27,15 @@ export const StyledHeroImage = styled.div`
     max-width: 700px;
     position: absolute;
     bottom: 40px;
-    margin-right: 20px;
     min-height: 100px;
     background: rgba(0, 0, 0, 0);
     color: #fff;
     font-size:3rem;
 
-    h1 {
-      font-family: 'Abel', sans-serif;
+    h2 {
+      font-family: 'Noto Sans TC', sans-serif;
       color: #fff;
+      margin:0;
 
       @media screen and (max-width: 720px) {
         font-size: 38px;
@@ -44,9 +44,9 @@ export const StyledHeroImage = styled.div`
     }
 
     p {
-      font-family: 'Abel', sans-serif;
-      font-size: 22px;
-      line-height: 26px;
+      font-family: 'Noto Sans TC', sans-serif;
+      font-size: 28px;
+      line-height: 1.5;
       color: #fff;
 
       @media screen and (max-width: 720px) {

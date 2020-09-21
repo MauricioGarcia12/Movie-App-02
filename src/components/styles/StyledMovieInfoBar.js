@@ -9,7 +9,7 @@ export const StyledMovieInfoBar = styled.div`
   background: #1c1c1c;
   padding: 20px;
   box-sizing: border-box;
-  font-family: 'Abel', sans-serif;
+  font-family: 'Noto Sans TC', sans-serif;
   font-size: 20px;
 
   span{

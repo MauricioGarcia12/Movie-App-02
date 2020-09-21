@@ -1,7 +1,7 @@
 import {useEffect , useState} from 'react'
 import {POPULAR_BASE_URL} from '../../config';
 
-export const useHomeFetch = () =>{
+export const useHomeFetch = searchTerm =>{
 
     const [state,setState]=useState({
         movies:[]
@@ -38,9 +38,26 @@ export const useHomeFetch = () =>{
         setLoading(false);
     }
 
+    //Extrayendo peliculas populares inicialmente
+
     useEffect(() => {
-        fetchMovies(POPULAR_BASE_URL);
+        if(sessionStorage.homeState){
+
+            //volviendo a convertir en objeto el state
+            setState(JSON.parse(sessionStorage.homeState))
+            setLoading(false)
+        }
+        else{
+            fetchMovies(POPULAR_BASE_URL);
+        }
     }, [])
+
+    useEffect(() => {
+        if(!searchTerm){
+            //nombrando el state en el session y convirtiendolo a string
+            sessionStorage.setItem('homeState',JSON.stringify(state))
+        }
+    }, [searchTerm,state])
 
     return [{state,loading,error},fetchMovies];
 }

@@ -20,7 +20,14 @@ const MovieInfoBar = ({time,budget,revenue}) => {
                     <FontAwesome className="fa-budget" name="money" size="2x"/>
 
                     <span className="movieinforbar-info">
-                        Budget:  {convertMoney(budget)}
+                        Budget:  {
+                            budget >0
+                            ?
+                            convertMoney(budget)
+                            :
+                            'Unknown'
+
+                        }
                     </span>
                 </div>
 
@@ -28,7 +35,14 @@ const MovieInfoBar = ({time,budget,revenue}) => {
                     <FontAwesome className="fa-revenue" name="ticket" size="2x"/>
                     
                     <span className="movieinforbar-info">
-                        Revenue:  {convertMoney(revenue)}
+                        Revenue:  {
+                            revenue>0
+                            ?
+                            convertMoney(revenue)
+                            :
+                            'Unknown'
+
+                        }
                     </span>
                 </div>
             </div>

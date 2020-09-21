@@ -4,8 +4,14 @@ export const StyledGrid = styled.div`
   max-width: 1280px;
   margin: 0 auto;
   padding: 0 20px;
+  .movieName{
+      width:100%;
+      text-align:center;
+      font-size:19px;
+      
+    }
   h1 {
-    font-family: 'Abel', sans-serif;
+    font-family: 'Noto Sans TC', sans-serif;
     font-size: 42px;
 
     @media screen and (max-width: 768px) {

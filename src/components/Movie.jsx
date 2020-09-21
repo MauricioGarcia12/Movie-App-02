@@ -37,7 +37,6 @@ const Movie = ({movieId}) => {
                 ))}
                 
             </Grid>
-            <Spinner/>
         </Fragment>
      );
 }

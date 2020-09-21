@@ -23,8 +23,8 @@ const MovieInfo = ({movie}) => {
                 </div>
                 <div className="movieinfo-text">
                     <h1>{movie.title}</h1>
-                    <h3>Plot</h3>
-                    <p>{movie.overview}</p>
+                    <h2>Plot</h2>
+                    <p className="overview">{movie.overview}</p>
                 
                     <div className="rating-director">
                         <div >

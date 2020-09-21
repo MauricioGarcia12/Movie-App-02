@@ -9,7 +9,7 @@ export const StyledLoadMoreBtn = styled.button`
   cursor: pointer;
   transition: all 0.3s;
   border-radius: 40px;
-  font-family: 'Abel', sans-serif;
+  font-family: 'Noto Sans TC', sans-serif;
   font-size: 28px;
   max-width: 1280px;
   display: block;

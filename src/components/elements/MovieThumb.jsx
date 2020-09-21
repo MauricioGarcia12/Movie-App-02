@@ -18,7 +18,9 @@ const MovieThumb = ({image,movieId,clickable,movieName}) => {
                 (<img src={image} alt="moviethumb"/>)
 
             }
-            <h2 className="">{movieName}</h2>
+            <div className="movieName">
+                <h2 className="">{movieName}</h2>
+            </div>
         </StyledMovieThumb>
      );
 }

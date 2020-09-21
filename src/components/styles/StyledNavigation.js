@@ -5,8 +5,8 @@ export const StyledNavigation = styled.div`
   align-items: center;
   width: 100%;
   height: 70px;
-  background: #353535;
-  color: #fff;
+  background: #1c1c1c ;
+  
 
   .navigation-content {
     max-width: 1280px;
@@ -14,9 +14,16 @@ export const StyledNavigation = styled.div`
     padding: 0 20px;
     width: 100%;
 
+  .homeTitle{
+    &:hover{
+      text-decoration:underline;
+    }
+
+  };
+
     p {
       font-family: 'Abel', sans-serif;
-      font-size: 22px;
+      font-size: 32px;
       float: left;
       color: #fff;
       padding-right: 10px;

@@ -23,8 +23,8 @@ import NoImage from './images/no_image.jpg';
 
 const HomePage = () => {
 
-    const [{state,loading,error},fetchMovies] = useHomeFetch();
     const [searchTerm, setSearchTerm] = useState('');
+    const [{state,loading,error},fetchMovies] = useHomeFetch(searchTerm);
 
     const {movies,currentPage,heroImage,totalPages}=state;
 
